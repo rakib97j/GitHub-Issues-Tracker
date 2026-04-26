@@ -64,12 +64,33 @@ const cardsDisplay = (cards) => {
           <!-- Card Issues type -->
           <div>
             <button
-              class="bg-[#ffc9c9] text-[#EF4444] border-2 border-[#f89a9a] px-2 py-1 rounded-full"
+              class="
+              ${
+                card.labels[0] === "bug"
+                  ? "bg-[#ffc9c9] text-[#EF4444] border-[#f89a9a]"
+                  : card.labels[0] === "enhancement"
+                    ? "bg-[#DEFCE8] text-[#00A96E]  border-[#73e69b]"
+                    : "bg-[#bdbdff] text-[#0000FF]  border-[#0000ff63]"
+              } 
+                border-2  px-2 py-1 rounded-full"
             >
               ${card.labels[0]}
             </button>
             <button
-              class="bg-[#FFF8DB] text-[#D97706] border-2 border-[#FDE68A] px-1 py-1 rounded-full"
+              class="
+              
+              ${
+                card.labels[1] === "help wanted"
+                  ? "bg-[#ffebc6] text-[#FFA500] border-[#ffa60063]"
+                  : card.labels[1] === "good first issue"
+                    ? "bg-[#c5ffff] text-[#008080]  border-[#00808063]"
+                    : card.labels[1] === "enhancement"
+                      ? "bg-[#DEFCE8] text-[#00A96E]  border-[#73e69b]"
+                      : "bg-[#cfd1da] text-[#8a92a0]  border-[#8a92a067]"
+              } 
+              
+              
+              border-2 px-1 py-1 rounded-full"
             >
               ${card.labels[1]}
             </button>
@@ -87,3 +108,4 @@ const cardsDisplay = (cards) => {
 };
 
 fetchApi();
+
