@@ -1,11 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello home</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="assets/github-logo.png"
+      type="image/x-icon"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Font -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+    </style>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-[#F9FAFB]">
+    <!-- navbar -->
+    <nav class="bg-white">
+      <div class=" container mx-auto xl:flex  md:flex  justify-between py-3 ">
+        <!-- Logo and Name -->
+        <div class="flex justify-center items-center gap-2 mb-3 md:mb-0" >
+          <img class="w-[36px]" src="assets/github-logo.png" alt="#" />
+          <h1 class="text-[#1F2937] font-semibold  text-2xl  ">GitHub Issues Tracker</h1>
+        </div>
+        <!-- Search -->
+        <div class="flex ">
+          <div class="relative">
+            <input
+              class="text-[#64748B] border border-[#E4E4E7] p-2 rounded-lg pl-8"
+              type="text  "
+              placeholder="Search issues..."
+            />
+            <i class="text-[#64748B] fa-brands fa-sistrix absolute top-1/2 -translate-y-1/2 left-2 " ></i>
+          </div>
+          <button
+            id="searchBtn"
+            class="btn bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white p-2 rounded-lg font-semibold text-base ml-4"
+          > <i class="fa-solid fa-plus"></i>
+            Search
+          </button>
+        </div>
+      </div>
+    </nav>
+  </body>
 </html>
