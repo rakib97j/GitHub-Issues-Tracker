@@ -35,7 +35,7 @@
   <body class="bg-[#F9FAFB]">
     <!-- navbar -->
     <nav class="bg-white">
-      <div class=" px-10 mx-auto xl:flex md:flex justify-between py-3">
+      <div class="px-10 mx-auto xl:flex md:flex justify-between py-3">
         <!-- Logo and Name -->
         <div class="flex justify-center items-center gap-2 mb-3 md:mb-0">
           <img class="w-[36px]" src="assets/github-logo.png" alt="#" />
@@ -44,7 +44,7 @@
           </h1>
         </div>
         <!-- Search -->
-        <div class="flex">
+        <div class="flex flex-col md:flex-row md:gap-0 gap-3  items-center">
           <div class="relative">
             <input
               class="text-[#64748B] border border-[#E4E4E7] p-2 rounded-lg pl-8 outline-none focus:border-[#4A00FF] focus:ring-1 focus:ring-[#4A00FF]"
@@ -57,7 +57,7 @@
           </div>
           <button
             id="searchBtn"
-            class="btn bg-[#4A00FF] hover:bg-[#4F46E5]/90 text-white p-2 px-3 rounded-lg font-semibold text-base ml-4"
+            class="btn bg-[#4A00FF] hover:bg-[#4F46E5]/90 text-white p-2 px-3 rounded-lg font-semibold text-base ml-4 "
           >
             <i class="fa-solid fa-plus"></i>
             Search
@@ -122,6 +122,56 @@
           <p class="text-[#1F2937] font-normal text-base">
             <i class="fa-solid fa-circle text-[#A855F7]"></i> Closed
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Sections-->
+    <section class="bg-[#FBFBFB] container mx-auto p-6 rounded-b-lg shadow-lg">
+      <!-- Cards  -->
+      <div>
+        <!-- first -->
+        <div
+          class="bg-[#EFEFEF] border-t-4 border-b-2 border-b-[#E4E4E7] border-[#00A96E] rounded-t-lg p-4"
+        >
+          <!-- card status -->
+          <div class="flex justify-between mb-4">
+            <div>
+              <img src="assets/Open-Status.png" alt="#" />
+            </div>
+            <div>
+              <button
+                class="bg-[#ffc9c9] text-[#EF4444] px-6.5 py-1 rounded-full"
+              >
+                High
+              </button>
+            </div>
+          </div>
+          <!-- Card Details -->
+          <div>
+            <h1>Fix navigation menu on mobile devices</h1>
+            <p>
+              The navigation menu doesn't collapse properly on mobile devices...
+            </p>
+          </div>
+          <!-- Card Issues type -->
+          <div>
+            <button
+              class="bg-[#ffc9c9] text-[#EF4444] px-6.5 py-1 rounded-full"
+            >
+              High
+            </button>
+            <button
+              class="bg-[#ffc9c9] text-[#EF4444] px-6.5 py-1 rounded-full"
+            >
+              low
+            </button>
+          </div>
+        </div>
+        <!-- second -->
+        <div class="bg-[#EFEFEF] p-4 rounded-b-lg shadow-sm">
+          <p>#1 by john_doe</p>
+          <p>1/15/2024</p>
         </div>
       </div>
     </section>
