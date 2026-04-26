@@ -15,6 +15,14 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- Daisy Ui  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/daisyui.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- CSS Link -->
     <link rel="stylesheet" href="style.css" />
 
@@ -32,6 +40,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
+
   <body class="bg-[#F9FAFB]">
     <!-- navbar -->
     <nav class="bg-white">
@@ -127,14 +136,29 @@
     </section>
 
     <!-- Card Sections-->
-    <section class="bg-[#FBFBFB] container mx-auto p-6 rounded-b-lg shadow-lg mb-16">
+    <section
+      class="bg-[#FBFBFB] container mx-auto p-6 rounded-b-lg shadow-lg mb-16"
+    >
+
+
+
+
+    <!-- loading animation -->
+      <div id="loading" class="text-blue-800 flex items-center justify-center gap-4">
+        <span class="loading loading-bars loading-xl"></span>
+        <span class="loading loading-bars loading-xl"></span>
+        <span class="loading loading-bars loading-xl"></span>
+      </div>
       <!-- Cards  -->
-      <div id="cardContainer" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
+      <div
+        id="cardContainer"
+        class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+      >
         <!-- cardData  -->
       </div>
-    </section>
 
-   
+      
+    </section>
 
     <script src="script/home.js"></script>
   </body>

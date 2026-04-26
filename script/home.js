@@ -1,10 +1,18 @@
 const cardContainer = document.getElementById("cardContainer");
+const loading = document.getElementById("loading");
+let isLoading = true ;
+
 
 const fetchApi = () => {
+
+  isLoading=true;
+  loading.style.display = "flex" ;
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => {
       cardsDisplay(data.data);
+       isLoading = false;
+       loading.style.display = "none";
     });
 };
 
@@ -25,7 +33,7 @@ const cardsDisplay = (cards) => {
             </div>
             <div>
               <button
-                class="bg-[#ffc9c9] text-[#EF4444] px-6.5 py-1 rounded-full"
+                class="bg-[#ffc9c9] text-[#EF4444] px-6 py-1 rounded-full"
               >
                 ${card.priority}
               </button>
@@ -50,7 +58,7 @@ const cardsDisplay = (cards) => {
               ${card.labels[0]}
             </button>
             <button
-              class="bg-[#FFF8DB] text-[#D97706] border-2 border-[#FDE68A] px-2 py-1 rounded-full"
+              class="bg-[#FFF8DB] text-[#D97706] border-2 border-[#FDE68A] px-1 py-1 rounded-full"
             >
               ${card.labels[1]}
             </button>
