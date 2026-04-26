@@ -1,18 +1,16 @@
 const cardContainer = document.getElementById("cardContainer");
 const loading = document.getElementById("loading");
-let isLoading = true ;
-
+let isLoading = true;
 
 const fetchApi = () => {
-
-  isLoading=true;
-  loading.style.display = "flex" ;
+  isLoading = true;
+  loading.style.display = "flex";
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => {
       cardsDisplay(data.data);
-       isLoading = false;
-       loading.style.display = "none";
+      isLoading = false;
+      loading.style.display = "none";
     });
 };
 
@@ -24,16 +22,29 @@ const cardsDisplay = (cards) => {
         <div class="duration-300 hover:-translate-y-1  ">
           <!-- first -->
         <div
-          class="bg-[#EFEFEF] border-t-4 border-b-2 border-b-[#E4E4E7] border-[#00A96E] rounded-t-lg p-4 "
+          class="bg-[#EFEFEF] border-t-4 border-b-2 border-b-[#E4E4E7] rounded-t-lg p-4 
+          ${
+            card.priority === "high"
+              ? "border-[#00A96E]"
+              : card.priority === "medium"
+                ? "border-[#00A96E]"
+                : "border-[#A855F7]"
+          }"
         >
           <!-- card status -->
           <div class="flex justify-between mb-4">
             <div>
-              <img src="assets/Open-Status.png" alt="#" />
+              ${card.priority === "low" ? `<img src="assets/Closed- Status .png" alt="#">` : ` <img src="assets/Open-Status.png" alt="#" />`}
             </div>
             <div>
               <button
-                class="bg-[#ffc9c9] text-[#EF4444] px-6 py-1 rounded-full"
+                class="${
+                  card.priority === "high"
+                    ? "bg-[#ffc9c9] text-[#EF4444]"
+                    : card.priority === "medium"
+                      ? "bg-[#FFF6D1] text-[#F59E0B]"
+                      : "bg-[#cfd1da] text-[#8a92a0]"
+                } px-6 py-1 rounded-full"
               >
                 ${card.priority}
               </button>
@@ -71,7 +82,7 @@ const cardsDisplay = (cards) => {
         </div>
         </div>
         `;
-        cardContainer.appendChild(cardData)
+    cardContainer.appendChild(cardData);
   });
 };
 
