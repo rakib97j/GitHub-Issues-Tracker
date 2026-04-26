@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
+    <title>Home</title>
 
     <!-- Favicon -->
     <link
@@ -35,57 +35,95 @@
   <body class="bg-[#F9FAFB]">
     <!-- navbar -->
     <nav class="bg-white">
-      <div class=" container mx-auto xl:flex  md:flex  justify-between py-3 ">
+      <div class=" px-10 mx-auto xl:flex md:flex justify-between py-3">
         <!-- Logo and Name -->
-        <div class="flex justify-center items-center gap-2 mb-3 md:mb-0" >
+        <div class="flex justify-center items-center gap-2 mb-3 md:mb-0">
           <img class="w-[36px]" src="assets/github-logo.png" alt="#" />
-          <h1 class="text-[#1F2937] font-semibold  text-2xl  ">GitHub Issues Tracker</h1>
+          <h1 class="text-[#1F2937] font-semibold text-2xl">
+            GitHub Issues Tracker
+          </h1>
         </div>
         <!-- Search -->
-        <div class="flex ">
+        <div class="flex">
           <div class="relative">
             <input
-              class="text-[#64748B] border border-[#E4E4E7] p-2 rounded-lg pl-8"
+              class="text-[#64748B] border border-[#E4E4E7] p-2 rounded-lg pl-8 outline-none focus:border-[#4A00FF] focus:ring-1 focus:ring-[#4A00FF]"
               type="text  "
               placeholder="Search issues..."
             />
-            <i class="text-[#64748B] fa-brands fa-sistrix absolute top-1/2 -translate-y-1/2 left-2 " ></i>
+            <i
+              class="text-[#64748B] fa-brands fa-sistrix absolute top-1/2 -translate-y-1/2 left-2"
+            ></i>
           </div>
           <button
             id="searchBtn"
-            class="btn bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white p-2 rounded-lg font-semibold text-base ml-4"
-          > <i class="fa-solid fa-plus"></i>
+            class="btn bg-[#4A00FF] hover:bg-[#4F46E5]/90 text-white p-2 px-3 rounded-lg font-semibold text-base ml-4"
+          >
+            <i class="fa-solid fa-plus"></i>
             Search
           </button>
         </div>
       </div>
     </nav>
 
-
-
     <!-- Tab Section -->
-     <div class="flex  gap-2 p-4 bg-white mt-14 container mx-auto shadow-sm  rounded-lg ">
-          <button
-            id="all-btn"
-            class="px-3 rounded-lg text-white font-medium text-xs bg-[#4A00FF] py-2.5 w-20 border-[#F1F2F4] border"
-          >
-            All
-          </button>
-          <button
-            id="open-btn"
-            class="px-3 rounded-lg text-[#64748B] font-medium text-xs bg-white py-2.5 border-[#F1F2F4] border"
-          >
-            Open
-          </button>
-          <button
-            id="closed-btn"
-            class="px-3 rounded-lg text-[#64748B] font-medium text-xs bg-white py-2.5 border-[#F1F2F4] border"
-          >
-            Closed
-          </button>
+    <div
+      class="flex gap-2 p-4 bg-white mt-14 container mx-auto shadow-sm rounded-lg"
+    >
+      <button
+        id="all-btn"
+        class="px-3 rounded-lg text-white font-medium text-xs bg-[#4A00FF] py-2.5 w-20 border-[#F1F2F4] border"
+      >
+        All
+      </button>
+      <button
+        id="open-btn"
+        class="px-3 rounded-lg text-[#64748B] font-medium text-xs bg-white py-2.5 border-[#F1F2F4] border"
+      >
+        Open
+      </button>
+      <button
+        id="closed-btn"
+        class="px-3 rounded-lg text-[#64748B] font-medium text-xs bg-white py-2.5 border-[#F1F2F4] border"
+      >
+        Closed
+      </button>
+    </div>
+
+    <!-- Card Section -->
+    <section
+      class="bg-white container mx-auto p-6 rounded-t-lg shadow-lg mt-4 border-b-2 border-[#E4E4E7]"
+    >
+      <!-- Card count  section  -->
+      <div class="flex justify-between">
+        <!-- left -->
+        <div class="flex items-center">
+          <div>
+            <img
+              src="assets/Aperture.png"
+              alt="#"
+              class="p-2 bg-[#ECE4FF] rounded-full mr-2"
+            />
+          </div>
+          <div>
+            <p class="text-[#1F2937] font-semibold text-xl">
+              <span>0</span> Issues
+            </p>
+            <p class="text-[#64748B] font-normal text-base">
+              Track and manage your project issues
+            </p>
+          </div>
         </div>
-
-
-
+        <!-- Right -->
+        <div class="md:flex gap-5 items-center hidden">
+          <p class="text-[#1F2937] font-normal text-base">
+            <i class="fa-solid fa-circle text-[#00A96E]"></i> Open
+          </p>
+          <p class="text-[#1F2937] font-normal text-base">
+            <i class="fa-solid fa-circle text-[#A855F7]"></i> Closed
+          </p>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
