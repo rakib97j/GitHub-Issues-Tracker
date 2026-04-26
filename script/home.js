@@ -21,7 +21,7 @@ const cardsDisplay = (cards) => {
           <!-- card status -->
           <div class="flex justify-between mb-4">
             <div>
-               <p class="px-3 bg-[#d4c2ff] rounded-full " >${card.status}</p>
+              <img src="assets/Open-Status.png" alt="#" />
             </div>
             <div>
               <button
@@ -45,21 +45,21 @@ const cardsDisplay = (cards) => {
           <!-- Card Issues type -->
           <div>
             <button
-              class="bg-[#ffc9c9] text-[#EF4444] border-2 border-[#f89a9a] px-6.5 py-1 rounded-full"
+              class="bg-[#ffc9c9] text-[#EF4444] border-2 border-[#f89a9a] px-2 py-1 rounded-full"
             >
-              Bug
+              ${card.labels[0]}
             </button>
             <button
-              class="bg-[#FFF8DB] text-[#D97706] border-2 border-[#FDE68A] px-6.5 py-1 rounded-full"
+              class="bg-[#FFF8DB] text-[#D97706] border-2 border-[#FDE68A] px-2 py-1 rounded-full"
             >
-              help wanted
+              ${card.labels[1]}
             </button>
           </div>
         </div>
         <!-- second -->
         <div class="bg-[#EFEFEF] p-4 rounded-b-lg shadow-lg text-[#64748B]">
-          <p class="pb-2">#1 by john_doe</p>
-          <p>1/15/2024</p>
+          <p class="pb-2">${card.createdAt}</p>
+          <p>${card.updatedAt}</p>
         </div>
         </div>
         `;
