@@ -2,6 +2,12 @@ const cardContainer = document.getElementById("cardContainer");
 const loading = document.getElementById("loading");
 const total = document.getElementById("total");
 const searchBtn = document.getElementById("searchBtn");
+// btn
+const allBtn = document.getElementById("all-btn");
+const openBtn = document.getElementById("open-btn");
+const closedBtn = document.getElementById("closed-btn");
+let allCardsData = [];
+let currentFilter = "all";
 let isLoading = true;
 
 const fetchApi = () => {
@@ -10,10 +16,51 @@ const fetchApi = () => {
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => {
-      cardsDisplay(data.data);
+      allCardsData = data.data;
+      cardsDisplay(allCardsData);
       isLoading = false;
       loading.style.display = "none";
     });
+};
+
+const filterCards = (filterType) => {
+  currentFilter = filterType;
+  let filteredCards = [];
+
+  if (filterType === "all") {
+    filteredCards = allCardsData;
+  } else if (filterType === "open") {
+    filteredCards = allCardsData.filter(
+      (card) => card.priority === "high" || card.priority === "medium",
+    );
+  } else if (filterType === "closed") {
+    filteredCards = allCardsData.filter((card) => card.priority === "low");
+  }
+
+  cardsDisplay(filteredCards);
+  updateTabStyles(filterType);
+};
+
+const updateTabStyles = (activeTab) => {
+ 
+  allBtn.className =
+    "px-3 rounded-lg text-[#64748B] font-medium text-xs bg-white py-2.5 border-[#F1F2F4] border";
+  openBtn.className =
+    "px-3 rounded-lg text-[#64748B] font-medium text-xs bg-white py-2.5 border-[#F1F2F4] border";
+  closedBtn.className =
+    "px-3 rounded-lg text-[#64748B] font-medium text-xs bg-white py-2.5 border-[#F1F2F4] border";
+ 
+
+  if (activeTab === "all") {
+    allBtn.className =
+      "px-3 rounded-lg text-white font-medium text-xs bg-[#4A00FF] py-2.5 w-20 border-[#F1F2F4] border";
+  } else if (activeTab === "open") {
+    openBtn.className =
+      "px-3 rounded-lg text-white font-medium text-xs bg-[#4A00FF] py-2.5 w-20 border-[#F1F2F4] border";
+  } else if (activeTab === "closed") {
+    closedBtn.className =
+      "px-3 rounded-lg text-white font-medium text-xs bg-[#4A00FF] py-2.5 w-20 border-[#F1F2F4] border";
+  }
 };
 
 const cardsDisplay = (cards) => {
@@ -118,7 +165,19 @@ const handleSearch = (searchValue) => {
     `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`,
   )
     .then((res) => res.json())
-    .then((data) => cardsDisplay(data.data));
+    .then((data) => {
+      let searchResults = data.data;
+
+      if (currentFilter === "open") {
+        searchResults = searchResults.filter(
+          (card) => card.priority === "high" || card.priority === "medium",
+        );
+      } else if (currentFilter === "closed") {
+        searchResults = searchResults.filter((card) => card.priority === "low");
+      }
+
+      cardsDisplay(searchResults);
+    });
 };
 
 searchBtn.addEventListener("click", () => {
@@ -126,12 +185,16 @@ searchBtn.addEventListener("click", () => {
   handleSearch(searchInput);
 });
 
-// Add Enter key functionality for search
+
 document.getElementById("searchInput").addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     const searchInput = document.getElementById("searchInput").value;
     handleSearch(searchInput);
   }
 });
+
+allBtn.addEventListener("click", () => filterCards("all"));
+openBtn.addEventListener("click", () => filterCards("open"));
+closedBtn.addEventListener("click", () => filterCards("closed"));
 
 fetchApi();
