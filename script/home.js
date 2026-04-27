@@ -1,5 +1,7 @@
 const cardContainer = document.getElementById("cardContainer");
 const loading = document.getElementById("loading");
+const total = document.getElementById("total");
+const searchBtn = document.getElementById("searchBtn");
 let isLoading = true;
 
 const fetchApi = () => {
@@ -15,6 +17,8 @@ const fetchApi = () => {
 };
 
 const cardsDisplay = (cards) => {
+  cardContainer.innerHTML = "";
+  total.innerText = cards.length;
   cards.forEach((card) => {
     const cardData = document.createElement("div");
 
@@ -107,5 +111,27 @@ const cardsDisplay = (cards) => {
   });
 };
 
-fetchApi();
+// search function
 
+const handleSearch = (searchValue) => {
+  fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`,
+  )
+    .then((res) => res.json())
+    .then((data) => cardsDisplay(data.data));
+};
+
+searchBtn.addEventListener("click", () => {
+  const searchInput = document.getElementById("searchInput").value;
+  handleSearch(searchInput);
+});
+
+// Add Enter key functionality for search
+document.getElementById("searchInput").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    const searchInput = document.getElementById("searchInput").value;
+    handleSearch(searchInput);
+  }
+});
+
+fetchApi();
